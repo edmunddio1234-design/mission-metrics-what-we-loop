@@ -136,14 +136,62 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
 .fxpanel{position:absolute;top:0;height:100%;
   background:linear-gradient(160deg,var(--lime) 0%,var(--grn) 42%,var(--blue) 100%);
   box-shadow:0 0 40px rgba(0,0,0,.35)}
-.fxcard{position:absolute;width:230px;height:300px;border-radius:16px;
-  background:linear-gradient(150deg,#16233c 0%,#0B2343 60%,#132D4F 100%);
-  border:1px solid rgba(30,185,128,.35);
-  box-shadow:0 30px 70px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.05) inset}
-.fxcard::before{content:"";position:absolute;left:14px;right:14px;top:14px;height:8px;border-radius:4px;
-  background:linear-gradient(90deg,var(--lime),var(--grn),var(--blue))}
-.fxcard::after{content:"";position:absolute;left:14px;right:14px;top:38px;bottom:14px;border-radius:10px;
-  background:repeating-linear-gradient(180deg,rgba(255,255,255,.07) 0 6px,transparent 6px 20px)}
+/* ── the phone fan ──────────────────────────────────────────────────────
+   Real iPhone bodies, not blank cards: 9:19.5 body, thick machined bezel,
+   38px corner radius, a dynamic island, a side button and volume rockers,
+   and a screen carrying an actual social post — avatar, handle, image block,
+   caption lines, engagement row. One per platform the Marketing Engine ships
+   to, tinted with that platform's colour. They deal out of the centre in an
+   arc, hold, then fly off the top like posts being published, landing on the
+   Marketing Engine slide. */
+.fxphone{position:absolute;width:224px;height:470px;border-radius:38px;
+  background:linear-gradient(155deg,#3a3f47 0%,#15181d 18%,#0a0c0f 50%,#15181d 84%,#3a3f47 100%);
+  padding:9px;
+  box-shadow:0 44px 90px rgba(0,0,0,.72), 0 0 0 1px rgba(255,255,255,.10) inset,
+             0 2px 5px rgba(255,255,255,.16) inset;}
+/* side button + volume rockers */
+.fxphone::before{content:"";position:absolute;right:-2px;top:118px;width:3px;height:64px;border-radius:2px;
+  background:linear-gradient(180deg,#4a5058,#23272d);}
+.fxphone::after{content:"";position:absolute;left:-2px;top:96px;width:3px;height:34px;border-radius:2px;
+  background:linear-gradient(180deg,#4a5058,#23272d);
+  box-shadow:0 46px 0 #2b2f35, 0 92px 0 #2b2f35;}
+.fxscreen{position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;
+  background:#0e1626;display:flex;flex-direction:column}
+/* dynamic island */
+.fxisland{position:absolute;left:50%;top:9px;transform:translateX(-50%);
+  width:74px;height:21px;border-radius:12px;background:#000;z-index:3;
+  box-shadow:0 0 0 1px rgba(255,255,255,.05)}
+.fxstatus{display:flex;justify-content:space-between;align-items:center;
+  padding:9px 15px 0;font-size:9px;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.02em}
+.fxbar3{display:flex;gap:2px;align-items:flex-end}
+.fxbar3 i{width:2.5px;background:rgba(255,255,255,.75);border-radius:1px}
+.fxbar3 i:nth-child(1){height:4px}.fxbar3 i:nth-child(2){height:6px}
+.fxbar3 i:nth-child(3){height:8px}.fxbar3 i:nth-child(4){height:10px}
+/* the post */
+.fxhead{display:flex;align-items:center;gap:7px;padding:12px 13px 9px}
+.fxav{width:26px;height:26px;border-radius:50%;flex:none;
+  background:linear-gradient(135deg,var(--lime),var(--grn),var(--blue))}
+.fxwho{flex:1;min-width:0}
+.fxwho b{display:block;font-size:9.5px;font-weight:800;color:#fff;letter-spacing:.01em}
+.fxwho span{display:block;font-size:8px;color:rgba(255,255,255,.42);margin-top:1px}
+.fxplat{width:18px;height:18px;border-radius:5px;flex:none;font-size:9px;font-weight:900;color:#fff;
+  display:flex;align-items:center;justify-content:center}
+.fximg{flex:1;margin:0 11px;border-radius:12px;position:relative;overflow:hidden;
+  background:linear-gradient(150deg,#12243d,#0d1b2e)}
+.fximg::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 20% 12%, rgba(30,185,128,.42), transparent 62%),
+             radial-gradient(110% 80% at 88% 92%, rgba(46,90,158,.5), transparent 60%)}
+.fximg::after{content:"";position:absolute;left:14px;right:14px;bottom:16px;height:3px;border-radius:2px;
+  background:rgba(255,255,255,.28);
+  box-shadow:0 -11px 0 rgba(255,255,255,.20), 0 -22px 0 rgba(255,255,255,.13),
+             0 -46px 0 6px rgba(255,255,255,.10)}
+.fxcap{padding:10px 13px 6px}
+.fxcap i{display:block;height:4px;border-radius:2px;background:rgba(255,255,255,.16);margin-bottom:5px}
+.fxcap i:nth-child(1){width:92%}.fxcap i:nth-child(2){width:74%}.fxcap i:nth-child(3){width:52%;background:rgba(30,185,128,.5)}
+.fxeng{display:flex;gap:12px;padding:2px 13px 14px}
+.fxeng i{width:15px;height:15px;border-radius:4px;background:rgba(255,255,255,.11)}
+.fxhome{position:absolute;left:50%;bottom:7px;transform:translateX(-50%);
+  width:88px;height:4px;border-radius:3px;background:rgba(255,255,255,.5)}
 .fxbar{position:absolute;top:-10%;left:0;width:150%;height:120%;
   background:linear-gradient(100deg,var(--lime),var(--grn) 40%,var(--blue));
   box-shadow:0 0 80px rgba(30,185,128,.5)}
@@ -212,7 +260,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
   </div>
  </div>
 </div></section>
-<section class="scene showcase" data-scene="4" data-dur="13" data-trans="push" data-pages="6">
+<section class="scene showcase" data-scene="4" data-dur="13" data-trans="fan" data-pages="6">
 <div class="bg-solid"></div>
 <div class="show-grid">
  <div class="show-copy">
@@ -232,7 +280,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
   </div>
  </div>
 </div></section>
-<section class="scene showcase" data-scene="5" data-dur="11" data-trans="fan" data-pages="6">
+<section class="scene showcase" data-scene="5" data-dur="11" data-trans="swipe" data-pages="6">
 <div class="bg-solid"></div>
 <div class="show-grid rev">
  <div class="show-copy">
@@ -252,7 +300,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
   </div>
  </div>
 </div></section>
-<section class="scene showcase" data-scene="6" data-dur="12" data-trans="swipe" data-pages="6">
+<section class="scene showcase" data-scene="6" data-dur="12" data-trans="shutter" data-pages="6">
 <div class="bg-solid"></div>
 <div class="show-grid">
  <div class="show-copy">
@@ -272,7 +320,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
   </div>
  </div>
 </div></section>
-<section class="scene showcase" data-scene="7" data-dur="10" data-trans="shutter" data-pages="4">
+<section class="scene showcase" data-scene="7" data-dur="10" data-trans="iris" data-pages="4">
 <div class="bg-solid"></div>
 <div class="show-grid rev">
  <div class="show-copy">
@@ -292,7 +340,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
   </div>
  </div>
 </div></section>
-<section class="scene chapter" data-scene="8" data-dur="3.6" data-trans="iris">
+<section class="scene chapter" data-scene="8" data-dur="3.6" data-trans="push">
 <div class="bg-grad alt"></div><div class="content center">
 <div class="chapnum" data-anim="chapnum">02</div>
 <h2 class="chaptitle" data-anim="chaptitle">The <span class='grn'>Proof</span></h2>
@@ -370,7 +418,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
   <div class="crole">Mission Metrics Solutions LLC</div>
   <div class="cline"><span>WEB</span><b id="c-web">missionmetrics.solutions</b></div>
   <div class="cline"><span>EMAIL</span><b id="c-email">lynelle@missionmetrics.solutions</b></div>
-  <div class="cline"><span>PHONE</span><b id="c-phone">Add your number</b></div>
+  <div class="cline"><span>PHONE</span><b id="c-phone">225-266-3198</b></div>
  </div></div></div></section>
 </div>
 <div class="hud"><div class="dots" id="dots"></div><div class="bar"><div class="fill" id="fill"></div></div></div>
@@ -530,13 +578,38 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
     }
     return out;
   }
-  function cards(n) {
+  // Real iPhones, one per platform the Marketing Engine publishes to.
+  // Deterministic — no Math.random anywhere (HyperFrames rule).
+  var PLATFORMS = [
+    { n: 'f',  bg: '#1877F2', who: 'Mission Metrics', at: 'Facebook · now' },
+    { n: '\u25C9', bg: 'linear-gradient(135deg,#F9CE34,#EE2A7B,#6228D7)', who: 'missionmetrics', at: 'Instagram · now' },
+    { n: 'in', bg: '#0A66C2', who: 'Mission Metrics', at: 'LinkedIn · now' },
+    { n: '\u266A', bg: '#000000', who: '@missionmetrics', at: 'TikTok · now' },
+    { n: 'f',  bg: '#1877F2', who: 'Mission Metrics', at: 'Facebook · scheduled' }
+  ];
+  function phones(n) {
     fx.innerHTML = '';
     var out = [];
     for (var k = 0; k < n; k++) {
-      var c = document.createElement('div');
-      c.className = 'fxcard';
-      fx.appendChild(c); out.push(c);
+      var pl = PLATFORMS[k % PLATFORMS.length];
+      var d = document.createElement('div');
+      d.className = 'fxphone';
+      d.innerHTML =
+        '<div class="fxscreen">' +
+          '<div class="fxisland"></div>' +
+          '<div class="fxstatus"><span>9:41</span>' +
+            '<span class="fxbar3"><i></i><i></i><i></i><i></i></span></div>' +
+          '<div class="fxhead">' +
+            '<div class="fxav"></div>' +
+            '<div class="fxwho"><b>' + pl.who + '</b><span>' + pl.at + '</span></div>' +
+            '<div class="fxplat" style="background:' + pl.bg + '">' + pl.n + '</div>' +
+          '</div>' +
+          '<div class="fximg"></div>' +
+          '<div class="fxcap"><i></i><i></i><i></i></div>' +
+          '<div class="fxeng"><i></i><i></i><i></i></div>' +
+          '<div class="fxhome"></div>' +
+        '</div>';
+      fx.appendChild(d); out.push(d);
     }
     return out;
   }
@@ -555,50 +628,73 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
       var ps = panels(6);
       gsap.timeline({ onComplete: finish })
         .set(ps, { yPercent: -102 })
-        .to(ps, { yPercent: 0, duration: .5, ease: 'power4.in', stagger: .045 })
+        .to(ps, { yPercent: 0, duration: .72, ease: 'power4.in', stagger: .07 })
         .add(swap)
-        .to(ps, { yPercent: 102, duration: .62, ease: 'power4.out', stagger: { each: .045, from: 'end' } }, '+=.05')
-        .fromTo(scenes[i], { scale: 1.04 }, { scale: 1, duration: .9, ease: 'power2.out' }, '<');
+        .to(ps, { yPercent: 102, duration: .9, ease: 'power4.out', stagger: { each: .07, from: 'end' } }, '+=.18')
+        .fromTo(scenes[i], { scale: 1.05 }, { scale: 1, duration: 1.4, ease: 'power2.out' }, '<');
 
     } else if (kind === 'fan') {
-      var cs = cards(7);
+      // SLOWED. This runs ~4.6s instead of ~1.4s. It is the signature moment of the
+      // loop — five real phones deal out of the centre in an arc, HOLD long enough to
+      // actually be read from ten feet away, then rise and fly off the top like posts
+      // being published — landing on the Marketing Engine slide.
+      var ph = phones(5);
       var t2 = gsap.timeline({ onComplete: finish });
-      t2.set(cs, { xPercent: -50, yPercent: -50, left: '50%', top: '50%', opacity: 0, scale: .82, rotate: 0, x: 0, y: 0 });
-      cs.forEach(function (c, k) {
-        t2.to(c, { opacity: 1, scale: 1, rotate: (k - 3) * 13, x: (k - 3) * 132, y: Math.abs(k - 3) * 15,
-                   duration: .42, ease: 'back.out(1.6)' }, .04 * k);
+      t2.set(ph, { xPercent: -50, yPercent: -50, left: '50%', top: '50%',
+                   opacity: 0, scale: .7, rotate: 0, x: 0, y: 60 });
+
+      // 1. the outgoing scene settles back and softens (0 -> 0.9s)
+      t2.to(out, { scale: .93, opacity: 0, filter: 'blur(7px)', duration: .9, ease: 'power2.inOut' }, 0);
+
+      // 2. deal the phones out into a fan (0.25 -> 1.6s) — slow, weighty, staggered
+      ph.forEach(function (p, k) {
+        var mid = (ph.length - 1) / 2;
+        t2.to(p, { opacity: 1, scale: 1, rotate: (k - mid) * 11,
+                   x: (k - mid) * 236, y: Math.abs(k - mid) * 26,
+                   duration: 1.05, ease: 'back.out(1.35)' }, .25 + .13 * k);
       });
-      t2.to(out, { scale: .94, opacity: 0, filter: 'blur(6px)', duration: .5, ease: 'power2.in' }, .3);
-      t2.add(swap, .74);
-      cs.forEach(function (c, k) {
-        t2.to(c, { y: -1400, rotate: (k - 3) * 30, opacity: 0, duration: .62, ease: 'power3.in' }, .8 + .035 * k);
+
+      // 3. HOLD — a full beat where the phones just sit there and read (1.6 -> 2.7s)
+      t2.to(ph, { y: '-=10', duration: 1.1, ease: 'sine.inOut' }, 1.6);
+
+      // 4. swap the scene behind them while they're still up (2.7s)
+      t2.add(swap, 2.7);
+
+      // 5. publish: they rise, spin out, and fly off the top (2.75 -> 4.3s)
+      ph.forEach(function (p, k) {
+        var mid = (ph.length - 1) / 2;
+        t2.to(p, { y: -1500, rotate: (k - mid) * 26, opacity: 0, scale: .86,
+                   duration: 1.25, ease: 'power2.in' }, 2.75 + .09 * k);
       });
-      t2.fromTo(scenes[i], { opacity: 0, scale: 1.05 }, { opacity: 1, scale: 1, duration: .72, ease: 'power3.out' }, .8);
+
+      // 6. the Marketing Engine slide arrives underneath them
+      t2.fromTo(scenes[i], { opacity: 0, scale: 1.06 },
+                           { opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out' }, 2.78);
 
     } else if (kind === 'push') {
       gsap.timeline({ onComplete: finish })
-        .to(out, { xPercent: -22, scale: .88, rotateY: 9, opacity: .3, filter: 'blur(4px)', duration: .58, ease: 'power3.inOut' })
+        .to(out, { xPercent: -24, scale: .86, rotateY: 10, opacity: .25, filter: 'blur(5px)', duration: .85, ease: 'power3.inOut' })
         .add(swap)
         .fromTo(scenes[i], { xPercent: 26, scale: .92, rotateY: -9, opacity: 0 },
-                           { xPercent: 0, scale: 1, rotateY: 0, opacity: 1, duration: .8, ease: 'power4.out' })
+                           { xPercent: 0, scale: 1, rotateY: 0, opacity: 1, duration: 1.15, ease: 'power4.out' })
         .set(out, { clearProps: 'all' });
 
     } else if (kind === 'iris') {
       gsap.timeline({ onComplete: finish })
         .set(fx, { background: '#0B2343', opacity: 1, clipPath: 'circle(0% at 50% 50%)' })
-        .to(fx, { clipPath: 'circle(75% at 50% 50%)', duration: .5, ease: 'power3.in' })
+        .to(fx, { clipPath: 'circle(75% at 50% 50%)', duration: .78, ease: 'power3.in' })
         .add(swap)
-        .fromTo(scenes[i], { scale: 1.06 }, { scale: 1, duration: 1, ease: 'power2.out' }, '<')
-        .to(fx, { clipPath: 'circle(0% at 50% 50%)', duration: .68, ease: 'power3.out' });
+        .fromTo(scenes[i], { scale: 1.07 }, { scale: 1, duration: 1.5, ease: 'power2.out' }, '<')
+        .to(fx, { clipPath: 'circle(0% at 50% 50%)', duration: 1.0, ease: 'power3.out' });
 
     } else if (kind === 'blinds') {
       var bs = panels(8);
       gsap.timeline({ onComplete: finish })
         .set(bs, { scaleY: 0, transformOrigin: 'top center' })
-        .to(bs, { scaleY: 1, duration: .42, ease: 'power3.in', stagger: .04 })
+        .to(bs, { scaleY: 1, duration: .62, ease: 'power3.in', stagger: .065 })
         .add(swap)
-        .to(bs, { scaleY: 0, transformOrigin: 'bottom center', duration: .55, ease: 'power3.out', stagger: .04 })
-        .fromTo(scenes[i], { opacity: .4 }, { opacity: 1, duration: .5, ease: 'sine.out' }, '<');
+        .to(bs, { scaleY: 0, transformOrigin: 'bottom center', duration: .8, ease: 'power3.out', stagger: .065 })
+        .fromTo(scenes[i], { opacity: .35 }, { opacity: 1, duration: .8, ease: 'sine.out' }, '<');
 
     } else {
       fx.innerHTML = '';
@@ -607,14 +703,42 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
       fx.appendChild(bar);
       gsap.timeline({ onComplete: finish })
         .set(bar, { xPercent: -150, skewX: -14 })
-        .to(out, { xPercent: -5, opacity: .2, duration: .5, ease: 'power2.in' }, 0)
-        .to(bar, { xPercent: 0, duration: .45, ease: 'power4.in' }, 0)
+        .to(out, { xPercent: -6, opacity: .15, duration: .72, ease: 'power2.in' }, 0)
+        .to(bar, { xPercent: 0, duration: .68, ease: 'power4.in' }, 0)
         .add(swap)
-        .to(bar, { xPercent: 150, duration: .6, ease: 'power4.out' })
-        .fromTo(scenes[i], { xPercent: 5, opacity: 0 }, { xPercent: 0, opacity: 1, duration: .65, ease: 'power3.out' }, '<')
+        .to(bar, { xPercent: 150, duration: .9, ease: 'power4.out' })
+        .fromTo(scenes[i], { xPercent: 6, opacity: 0 }, { xPercent: 0, opacity: 1, duration: .95, ease: 'power3.out' }, '<')
         .set(out, { clearProps: 'all' });
     }
   }
+  // ── THE BLUE SCREEN, and the fix ──────────────────────────────────────
+  // The CTA is the one scene allowed an EXIT animation (HyperFrames rule: only the
+  // final scene may fade out). It fades its .content to opacity 0 at the end.
+  //
+  // But swap() only ever ran clearProps on the SCENE element — never on its children.
+  // So the CTA's .content stayed pinned at opacity:0 with a stale inline transform,
+  // FOREVER. On lap two the CTA came up as nothing but its blue background, and every
+  // lap after that too. That is exactly the "once it loops it's just a blue screen".
+  //
+  // The lesson generalises: any tween we kill mid-flight, or any exit we let complete,
+  // can strand an inline style on a child. So on EVERY scene entry, wipe every inline
+  // style GSAP could have left on anything it animates, and rebuild from the CSS.
+  // A scene must never inherit state from its last appearance.
+  function resetScene(scene) {
+    var animated = scene.querySelectorAll(
+      '.content, .show-grid, .show-copy, .show-shot, [data-anim], .browser, .feats li, .chips span'
+    );
+    if (animated.length) {
+      gsap.killTweensOf(animated);
+      gsap.set(animated, { clearProps: 'all' });
+    }
+    // NOTE: deliberately does NOT touch the scene element itself. run() is called
+    // synchronously from jump() right AFTER jump starts the scene's own fade-in —
+    // killing tweens on the scene here would murder that fade mid-flight and strand
+    // the whole scene at opacity 0. (Found the hard way: arrow-key navigation went
+    // black on every slide.) Scene-level cleanup belongs in swap() and hardReset().
+  }
+
   function resetPages(scene) {
     scene.querySelectorAll('[data-pages]').forEach(function (w) {
       w.querySelectorAll('img.pg').forEach(function (img, n) {
@@ -632,7 +756,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
   function run() {
     var s = scenes[i], dur = parseFloat(s.dataset.dur);
     dots.forEach(function(d,n){ d.classList.toggle('on', n===i); });
-    killPages(); resetPages(s);
+    killPages(); resetScene(s); resetPages(s);
     if (tl) tl.kill();
     tl = build(s); tl.play(); kenBurns(s, dur+1);
     cyclePages(s, dur);
