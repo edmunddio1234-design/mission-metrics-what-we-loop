@@ -542,7 +542,61 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
   });
   document.addEventListener('click', function(){ setPlaying(!playing); });
   setTimeout(function(){ hintEl.classList.add('hide'); }, 12000);
-  document.addEventListener('visibilitychange', function(){ if(!document.hidden && playing) run(); });
+
+  // ── THE BOOTH-KILLER, and the fix ──────────────────────────────────────
+  // A monitor sleeps. Someone alt-tabs. Chrome backgrounds the tab. When that
+  // happens Chrome THROTTLES requestAnimationFrame — so GSAP stops advancing —
+  // but setTimeout KEEPS FIRING. The loop therefore starts a transition, the
+  // outgoing scene fades to opacity:0, and the onComplete that swaps in the next
+  // scene NEVER RUNS. The result is a black screen, permanently, with the scene
+  // stranded at opacity:0 and a pile of dead tweens in the global timeline.
+  // It is exactly what happened on the first deploy of this file.
+  //
+  // So: STOP the clock while hidden, and on return do a HARD RESET — kill every
+  // tween, strip every inline style GSAP left behind, and rebuild the current
+  // scene from scratch. Never trust a half-finished transition.
+  function hardReset() {
+    killPages();
+    clearTimeout(timer);
+    if (tl) tl.kill();
+    if (prog) prog.kill();
+    gsap.globalTimeline.getChildren().forEach(function (t) { t.kill(); });
+    scenes.forEach(function (s) {
+      gsap.killTweensOf(s);
+      gsap.set(s, { clearProps: 'all' });
+      s.querySelectorAll('*').forEach(function (el) {
+        gsap.killTweensOf(el);
+        gsap.set(el, { clearProps: 'all' });
+      });
+      s.classList.remove('on');
+    });
+    gsap.set(wipe, { scaleX: 0, clearProps: 'transform' });
+    scenes[i].classList.add('on');
+    run();
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {            // freeze — do not let setTimeout outrun rAF
+      clearTimeout(timer);
+      killPages();
+    } else if (playing) {
+      hardReset();                    // come back clean, never mid-transition
+    }
+  });
+
+  // Same failure mode, different trigger: a long stall (screen wake, GC pause)
+  // can leave rAF starved. GSAP's lag smoothing papers over small hitches; for
+  // anything over a second, rebuild rather than resume a stale timeline.
+  window.addEventListener('focus', function () { if (playing && document.querySelector('.scene.on') &&
+      parseFloat(getComputedStyle(document.querySelector('.scene.on')).opacity) < 0.99) hardReset(); });
+
+  // Belt and braces for an 8-hour day: every 30s, if the visible scene somehow
+  // isn't visible, recover. Cheap, and it means the booth can never be black.
+  setInterval(function () {
+    if (!playing) return;
+    var cur = document.querySelector('.scene.on');
+    if (!cur || parseFloat(getComputedStyle(cur).opacity) < 0.05) hardReset();
+  }, 30000);
 
   scenes[0].classList.add('on');
   run();
