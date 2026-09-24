@@ -6,7 +6,7 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 
 ## What it is
 
-13 slides, ~2m 15s per rotation, cycling forever:
+18 slides, ~4m 30s per rotation, cycling forever:
 
 | # | Slide |
 |---|---|
@@ -18,20 +18,36 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 | 06 | Marketing Engine *(4 sections)* |
 | 07 | Concrete Bid Copilot *(5 sections)* |
 | 08 | Biblical Pathways *(4 sections)* |
-| 09 | — THE PROOF — |
-| 10 | Silverback Enterprises *(5 pages)* |
-| 11 | BRBR Collection *(6 sections)* |
-| 12 | Compassion for Lives *(6 sections)* |
-| 13 | Let's talk at the table *(QR + contact)* |
+| 09 | Impact Trading Academy *(6 motion clips)* |
+| 10 | — THE PROOF — |
+| 11 | Silverback Enterprises *(5 pages)* |
+| 12 | BRBR Collection *(6 sections)* |
+| 13 | Compassion for Lives *(6 sections)* |
+| 14 | All is Well — Health & Wellness *(6 motion clips)* |
+| 15 | Providence House — site + Leadership Dashboard *(6 motion clips)* |
+| 16 | LCA Metal Services *(6 motion clips)* |
+| 17 | IronBridge Medical Evidence *(6 motion clips)* |
+| 18 | Let's talk at the table *(QR + contact)* |
 
 Every product slide **cycles through the real pages of that product's site**,
-cross-fading inside a browser frame while the copy holds — 52 real screenshots
-in total, captured live from each deployment.
+cross-fading inside a browser frame while the copy holds — 52 real screenshots,
+plus **30 motion clips** on the newer slides: short screen recordings of each live
+site scrolling, animating and switching dashboard tabs, so the booth shows the
+sites *moving*, not just still pictures.
+
+## Media check (built in)
+
+When the page opens it checks **every screenshot and every clip on every slide**:
+images must decode to real pixels, clips must reach a playable frame. Each clip
+carries a poster still — if a clip ever fails to play, it is swapped for that
+still automatically, so a page can lose its motion but never go blank. The check
+re-runs every 10 minutes. Press **`D`** for the slide-by-slide report (it opens by
+itself if anything could not be repaired).
 
 ## The one rule it was built around
 
-**It runs with the wifi off.** Conference networks die. So every screenshot, the
-QR code, and the entire GSAP animation library are embedded directly in
+**It runs with the wifi off.** Conference networks die. So every screenshot, every
+clip, the QR code, and the entire GSAP animation library are embedded directly in
 `index.html`. The page makes **zero network requests** — verified by loading it
 with every request blocked at the browser level.
 
@@ -42,6 +58,7 @@ with every request blocked at the browser level.
 | `SPACE` / click | pause & resume |
 | `←` `→` | step between slides |
 | `F` | fullscreen |
+| `D` | media check report |
 
 ## Editing
 
