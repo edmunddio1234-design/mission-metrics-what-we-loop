@@ -612,7 +612,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
   var fill = document.getElementById('fill');
   var dotsEl = document.getElementById('dots'), pausedEl = document.getElementById('paused');
   var hintEl = document.getElementById('hint');
-  var i = 0, playing = true, tl = null, prog = null, timer = null;
+  var i = 0, playing = true, tl = null, prog = null, timer = null, lastRun = 0, lastDur = 0;
 
   scenes.forEach(function () { dotsEl.appendChild(document.createElement('i')); });
   var dots = [].slice.call(dotsEl.children);
@@ -639,6 +639,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
       for (var n = 1; n < pgs.length; n++) {
         (function (n) {
           pageTimers.push(setTimeout(function () {
+            pgs = wrap.querySelectorAll('.pg');
             gsap.to(pgs[n - 1], { opacity: 0, duration: .55, ease: 'power2.inOut' });
             gsap.fromTo(pgs[n], { opacity: 0, scale: 1.015 },
                                 { opacity: 1, scale: 1, duration: .75, ease: 'power2.out' });
@@ -918,6 +919,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
 
   function run() {
     var s = scenes[i], dur = parseFloat(s.dataset.dur);
+    lastRun = Date.now(); lastDur = dur;
     dots.forEach(function(d,n){ d.classList.toggle('on', n===i); });
     killPages(); resetScene(s); resetPages(s);
     if (tl) tl.kill();
@@ -1018,8 +1020,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
   function isVid(el) { return el && el.tagName === 'VIDEO'; }
   function playPage(el) {
     if (!isVid(el)) return;
-    try { el.currentTime = 0; var p = el.play(); if (p && p.catch) p.catch(function () { toPoster(el, 'play blocked'); }); }
-    catch (e) { toPoster(el, 'play error'); }
+    try {
+      el.currentTime = 0; var p = el.play();
+      if (p && p.catch) p.catch(function (e) {
+        if (e && e.name === 'NotSupportedError') toPoster(el, 'format not supported');
+        /* NotAllowedError / AbortError: the poster still shows; it plays next time */
+      });
+    } catch (e) {}
   }
   function stopPage(el) { if (isVid(el)) { try { el.pause(); } catch (e) {} } }
   function stopAll() { document.querySelectorAll('video.pg').forEach(stopPage); }
@@ -1032,6 +1039,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
     v.parentNode.replaceChild(img, v);
     console.warn('[media-check] clip fell back to poster:', why);
   }
+
+  document.querySelectorAll('video.pg').forEach(function (v) {
+    v.addEventListener('error', function () { toPoster(v, 'clip error'); });
+  });
+
+  // ── STALL GUARD ───────────────────────────────────────────────────────
+  // If a slide has been up far longer than its own length (a transition that
+  // never finished - e.g. the screen slept mid-way), rebuild and move on.
+  // The loop can never sit frozen on one slide.
+  setInterval(function () {
+    if (!playing || document.hidden || !lastRun) return;
+    if (Date.now() - lastRun > (lastDur + 15) * 1000) { console.warn('[stall-guard] rebuilding'); hardReset(); }
+  }, 5000);
 
   // ── INTERNAL MEDIA CHECK ───────────────────────────────────────────────
   // Every screenshot and every clip on every slide is checked when the page
@@ -1055,15 +1075,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
         setTimeout(function () { res(ok()); }, 8000);
         return;
       }
-      if (el.readyState >= 2 && !el.error) return res(true);
+      if (el.error) return res(false);                 // a real decode failure
+      if (el.readyState >= 1) return res(true);         // the browser has read the clip
       var done = false, fin = function (v) { if (!done) { done = true; res(v); } };
-      el.addEventListener('loadeddata', function () { fin(true); }, { once: true });
+      el.addEventListener('loadedmetadata', function () { fin(true); }, { once: true });
       el.addEventListener('error', function () { fin(false); }, { once: true });
-      try { el.load(); } catch (e) {}
-      setTimeout(function () { fin(el.readyState >= 2 && !el.error); }, 8000);
+      // Chrome does not load media in a background tab, and a busy machine can be
+      // slow - "not loaded yet" is NOT a failure. Only an actual error is.
+      setTimeout(function () { fin(!el.error ? 'wait' : false); }, 15000);
     });
   }
   function selfCheck() {
+    if (document.hidden) {                // wait until the loop is actually on screen
+      document.addEventListener('visibilitychange', function once() {
+        if (!document.hidden) { document.removeEventListener('visibilitychange', once); selfCheck(); }
+      });
+      return Promise.resolve();
+    }
     var jobs = [];
     report = [];
     document.querySelectorAll('.scene.showcase').forEach(function (sc) {
@@ -1073,6 +1101,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvet
                     kind: isVid(el) ? 'clip' : 'image', ok: null, note: '' };
         report.push(row);
         jobs.push(checkOne(el).then(function (ok) {
+          if (ok === 'wait') { row.ok = true; row.note = 'still loading'; return; }
           if (!ok && isVid(el) && el.poster) {           // repair: fall back to the still
             toPoster(el, 'clip did not decode'); row.note = 'repaired with poster';
             var img = sc.querySelectorAll('.shotwrap .pg, .shotwrap img')[n];
