@@ -6,7 +6,7 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 
 ## What it is
 
-18 slides, ~4m 30s per rotation, cycling forever:
+18 slides, ~4m 50s per rotation, cycling forever:
 
 | # | Slide |
 |---|---|
