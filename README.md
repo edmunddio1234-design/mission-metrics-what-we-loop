@@ -6,7 +6,7 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 
 ## What it is
 
-18 slides, ~4m 50s per rotation, cycling forever:
+20 slides, ~6 minutes per rotation, cycling forever:
 
 | # | Slide |
 |---|---|
@@ -15,25 +15,30 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 | 03 | Impact Operations™ Platform *(6 pages + live client instance inset)* |
 | 04 | Training Academy *(6 pages)* |
 | 05 | Mission Metrics Bookkeeping *(6 screens)* |
-| 06 | Marketing Engine *(4 sections)* |
+| 06 | Marketing Engine *(6 motion clips)* |
 | 07 | Concrete Bid Copilot *(5 sections)* |
 | 08 | Biblical Pathways *(4 sections)* |
 | 09 | Impact Trading Academy *(6 motion clips)* |
 | 10 | — THE PROOF — |
-| 11 | Silverback Enterprises *(5 pages)* |
-| 12 | BRBR Collection *(6 sections)* |
-| 13 | Compassion for Lives *(6 sections)* |
-| 14 | All is Well — Health & Wellness *(6 motion clips)* |
-| 15 | Providence House — site + Leadership Dashboard *(6 motion clips)* |
-| 16 | LCA Metal Services *(6 motion clips)* |
-| 17 | IronBridge Medical Evidence *(6 motion clips)* |
-| 18 | Let's talk at the table *(QR + contact)* |
+| 11 | All is Well — Health & Wellness *(6 motion clips, opens on the flower blooming)* |
+| 12 | All is Well — Leadership Dashboard *(6 motion clips, sample records)* |
+| 13 | LCA Metal Services *(6 motion clips)* |
+| 14 | LCA Work & Asset Dashboard *(6 motion clips, demonstration data)* |
+| 15 | Silverback Enterprises *(5 pages)* |
+| 16 | BRBR Collection *(6 sections)* |
+| 17 | Compassion for Lives *(6 sections)* |
+| 18 | Providence House — site + Leadership Dashboard *(6 motion clips)* |
+| 19 | IronBridge Medical Evidence *(6 motion clips)* |
+| 20 | Let's talk at the table *(QR + contact)* |
 
 Every product slide **cycles through the real pages of that product's site**,
-cross-fading inside a browser frame while the copy holds — 52 real screenshots,
-plus **30 motion clips** on the newer slides: short screen recordings of each live
-site scrolling, animating and switching dashboard tabs, so the booth shows the
-sites *moving*, not just still pictures.
+cross-fading inside a browser frame while the copy holds — 48 real screenshots,
+plus **48 motion clips**: short screen recordings of each live site scrolling,
+animating and switching dashboard tabs, so the booth shows the sites *moving*,
+not just still pictures.
+
+Dashboards are recorded on sample or demonstration data only — never real
+client records.
 
 ## Media check (built in)
 
