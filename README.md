@@ -6,7 +6,7 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 
 ## What it is
 
-20 slides, ~6 minutes per rotation, cycling forever:
+19 slides, ~5½ minutes per rotation, cycling forever:
 
 | # | Slide |
 |---|---|
@@ -15,25 +15,24 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 | 03 | Impact Operations™ Platform *(6 pages + live client instance inset)* |
 | 04 | Training Academy *(6 pages)* |
 | 05 | Mission Metrics Bookkeeping *(6 screens)* |
-| 06 | Marketing Engine *(6 motion clips)* |
-| 07 | Concrete Bid Copilot *(5 sections)* |
-| 08 | Biblical Pathways *(4 sections)* |
-| 09 | Impact Trading Academy *(6 motion clips)* |
-| 10 | — THE PROOF — |
-| 11 | All is Well — Health & Wellness *(6 motion clips, opens on the flower blooming)* |
-| 12 | All is Well — Leadership Dashboard *(6 motion clips, sample records)* |
-| 13 | LCA Metal Services *(6 motion clips)* |
-| 14 | LCA Work & Asset Dashboard *(6 motion clips, demonstration data)* |
-| 15 | Silverback Enterprises *(5 pages)* |
-| 16 | BRBR Collection *(6 sections)* |
-| 17 | Compassion for Lives *(6 sections)* |
-| 18 | Providence House — site + Leadership Dashboard *(6 motion clips)* |
-| 19 | IronBridge Medical Evidence *(6 motion clips)* |
-| 20 | Let's talk at the table *(QR + contact)* |
+| 06 | Concrete Bid Copilot *(5 sections)* |
+| 07 | Biblical Pathways *(4 sections)* |
+| 08 | Impact Trading Academy *(6 motion clips)* |
+| 09 | — THE PROOF — |
+| 10 | All is Well — Health & Wellness *(6 motion clips, opens on the flower blooming)* |
+| 11 | All is Well — Leadership Dashboard *(6 motion clips, sample records)* |
+| 12 | LCA Metal Services *(6 motion clips)* |
+| 13 | LCA Work & Asset Dashboard *(6 motion clips, demonstration data)* |
+| 14 | Silverback Enterprises *(5 pages)* |
+| 15 | BRBR Collection *(6 sections)* |
+| 16 | Compassion for Lives *(6 sections)* |
+| 17 | Providence House — site + Leadership Dashboard *(6 motion clips)* |
+| 18 | IronBridge Medical Evidence *(6 motion clips)* |
+| 19 | Let's talk at the table *(QR + contact)* |
 
 Every product slide **cycles through the real pages of that product's site**,
 cross-fading inside a browser frame while the copy holds — 48 real screenshots,
-plus **48 motion clips**: short screen recordings of each live site scrolling,
+plus **42 motion clips**: short screen recordings of each live site scrolling,
 animating and switching dashboard tabs, so the booth shows the sites *moving*,
 not just still pictures.
 
