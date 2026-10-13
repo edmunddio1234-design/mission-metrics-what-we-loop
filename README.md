@@ -6,7 +6,7 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 
 ## What it is
 
-21 slides, ~6¼ minutes per rotation, cycling forever:
+21 slides, ~6 minutes per rotation, cycling forever:
 
 | # | Slide |
 |---|---|
@@ -15,7 +15,7 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 | 03 | Impact Operations™ Platform *(6 pages + live client instance inset)* |
 | 04 | Training Academy *(6 pages)* |
 | 05 | Mission Metrics Bookkeeping *(6 screens)* |
-| 06 | Marketing Engine *(6 motion clips)* |
+| 06 | Marketing Engine *(6 pages of today's site)* |
 | 07 | Mission Metrics App Suite *(6 pages: suite, savings, PDF, Design, Film, Draft)* |
 | 08 | Concrete Bid Copilot *(5 sections)* |
 | 09 | Biblical Pathways *(4 sections)* |
@@ -33,8 +33,8 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 | 21 | Let's talk at the table *(QR + contact)* |
 
 Every product slide **cycles through the real pages of that product's site**,
-cross-fading inside a browser frame while the copy holds — 54 real screenshots,
-plus **48 motion clips**: short screen recordings of each live site scrolling,
+cross-fading inside a browser frame while the copy holds — 60 real screenshots,
+plus **42 motion clips**: short screen recordings of each live site scrolling,
 animating and switching dashboard tabs, so the booth shows the sites *moving*,
 not just still pictures.
 
