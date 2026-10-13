@@ -6,7 +6,7 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 
 ## What it is
 
-19 slides, ~5½ minutes per rotation, cycling forever:
+21 slides, ~6¼ minutes per rotation, cycling forever:
 
 | # | Slide |
 |---|---|
@@ -15,24 +15,26 @@ A single, self-contained HTML attract loop for the trade-show table monitor.
 | 03 | Impact Operations™ Platform *(6 pages + live client instance inset)* |
 | 04 | Training Academy *(6 pages)* |
 | 05 | Mission Metrics Bookkeeping *(6 screens)* |
-| 06 | Concrete Bid Copilot *(5 sections)* |
-| 07 | Biblical Pathways *(4 sections)* |
-| 08 | Impact Trading Academy *(6 motion clips)* |
-| 09 | — THE PROOF — |
-| 10 | All is Well — Health & Wellness *(6 motion clips, opens on the flower blooming)* |
-| 11 | All is Well — Leadership Dashboard *(6 motion clips, sample records)* |
-| 12 | LCA Metal Services *(6 motion clips)* |
-| 13 | LCA Work & Asset Dashboard *(6 motion clips, demonstration data)* |
-| 14 | Silverback Enterprises *(5 pages)* |
-| 15 | BRBR Collection *(6 sections)* |
-| 16 | Compassion for Lives *(6 sections)* |
-| 17 | Providence House — site + Leadership Dashboard *(6 motion clips)* |
-| 18 | IronBridge Medical Evidence *(6 motion clips)* |
-| 19 | Let's talk at the table *(QR + contact)* |
+| 06 | Marketing Engine *(6 motion clips)* |
+| 07 | Mission Metrics App Suite *(6 pages: suite, savings, PDF, Design, Film, Draft)* |
+| 08 | Concrete Bid Copilot *(5 sections)* |
+| 09 | Biblical Pathways *(4 sections)* |
+| 10 | Impact Trading Academy *(6 motion clips)* |
+| 11 | — THE PROOF — |
+| 12 | All is Well — Health & Wellness *(6 motion clips, opens on the flower blooming)* |
+| 13 | All is Well — Leadership Dashboard *(6 motion clips, sample records)* |
+| 14 | LCA Metal Services *(6 motion clips)* |
+| 15 | LCA Work & Asset Dashboard *(6 motion clips, demonstration data)* |
+| 16 | Silverback Enterprises *(5 pages)* |
+| 17 | BRBR Collection *(6 sections)* |
+| 18 | Compassion for Lives *(6 sections)* |
+| 19 | Providence House — site + Leadership Dashboard *(6 motion clips)* |
+| 20 | IronBridge Medical Evidence *(6 motion clips)* |
+| 21 | Let's talk at the table *(QR + contact)* |
 
 Every product slide **cycles through the real pages of that product's site**,
-cross-fading inside a browser frame while the copy holds — 48 real screenshots,
-plus **42 motion clips**: short screen recordings of each live site scrolling,
+cross-fading inside a browser frame while the copy holds — 54 real screenshots,
+plus **48 motion clips**: short screen recordings of each live site scrolling,
 animating and switching dashboard tabs, so the booth shows the sites *moving*,
 not just still pictures.
 
